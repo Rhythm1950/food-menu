@@ -1,34 +1,44 @@
-{/* <body>
-    <div class="container">
-        <form class="col-md-6 m-auto py-5">
-            <div class="input-group mb-3">
-                <input id="place" type="text" value="" class="form-control" placeholder="Enter a location for Weather ...">
-                <div class="input-group-append">
-                    <button id="search" type="button" class="btn btn-danger">Search</button>
-                </div>
-            </div>
-        </form>
-        <div class="weather-status text-white text-center">
-            <img id="icon" src="https://openweathermap.org/img/wn/02d@2x.png" alt="">
-            <h1 id="location">Dhaka</h1>
-            <h3><span id="temperature"> 38.06</span>&deg;C</h3>
-            <h1 id="condition" class="lead">Clouds</h1>
-        </div>
-    </div> */}
+const search = document.getElementById("search").addEventListener("click", function(){
+    const menuInput = document.getElementById("menu-input").value;
 
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${menuInput}`)
+    .then(res => res.json())
+    .then(data => {
+        const mealsDiv = document.getElementById("food-menu");
+        data.meals.forEach(element => {
+            const mealDiv = document.createElement("div");
+            mealDiv.className = "menu";
+            const mealInfo = `
+                        <div onclick="displayMenuDetails('${element.strMeal}')">
+                        <img class="menu-image" src="${element.strMealThumb}" >
+                        <h3 class="menu-name">${element.strMeal}</h3>
+                        </div>`
+            mealDiv.innerHTML = mealInfo;
+            mealsDiv.appendChild(mealDiv);
+        });
+    });
 
-        document.getElementById("search").addEventListener("click", function(){
-            const menuInput = document.getElementById("menu-input").value;           
-            fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${menuInput}`)
-            .then(abc => abc.json())
-            .then(data=>{
-                console.log(data);
-                // let unorderedList = data.
-                // let cityName = data.name;
-                // let condition = data.weather[0].main;
-                // document.getElementById("location").innerText = cityName;
-
-            });
-        })
+    displayMenuDetails = name =>{
+        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
+        .then(res => res.json())
+        .then(data => renderMenuInfo(data.meals[0]));
+    }
+    const renderMenuInfo = food =>{
+        console.log(food);
+    const foodDetails = document.getElementById("food-details");
+    foodDetails.innerHTML = `
+    <h1>${food.strMeal}</h1>
+    <h4>Ingredients</h4>
+    <ul>
+        <li><h5>${food.strIngredient1}</h5></li>
+        <li><h5>${food.strIngredient2}</h5></li>
+        <li><h5>${food.strIngredient3}</h5></li>
+        <li><h5>${food.strIngredient4}</h5></li>
+        <li><h5>${food.strIngredient5}</h5></li>
+        <li><h5>${food.strIngredient6}</h5></li>
+    </ul>
+    `
+    }
+})
 
         
