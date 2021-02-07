@@ -37,12 +37,13 @@ a.active,a:hover{
     color: white;
 }
 .menu {
-    border: 1px solid rgb(161, 161, 161);
+    /* border: 1px solid rgb(161, 161, 161); */
     border-radius: 7px;
     padding: 20px;
     text-align: center;
     width: 300px;
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(241, 241, 241);
+    box-shadow: 7px 7px 30px rgb(216, 216, 216);
 }
 .menu-name {
     font-size: 20px;
@@ -52,6 +53,7 @@ a.active,a:hover{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 25px;
+    margin-top: 40px;
 }
 body {
     margin-left: 15px;

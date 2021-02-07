@@ -27,6 +27,7 @@ const search = document.getElementById("search").addEventListener("click", funct
         console.log(food);
     const foodDetails = document.getElementById("food-details");
     foodDetails.innerHTML = `
+    <img class="menu-image" src="${food.strMealThumb}" >
     <h1>${food.strMeal}</h1>
     <h4>Ingredients</h4>
     <ul>
