@@ -1,0 +1,64 @@
+nav {
+    background-color: white;
+    height: 80px;
+    width: 100%;
+}
+.mylogo {
+    color: rgb(0, 0, 0);
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+nav ul {
+    float: right;
+    margin-right: 20px;
+    padding: 0 100px;
+}
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+nav ul li a {
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+a.active,a:hover{
+    color: rgb(48, 190, 247);
+    transition: .5s;
+}
+#search {
+    background-color: rgb(184, 49, 49);
+    color: white;
+}
+.menu {
+    border: 1px solid rgb(161, 161, 161);
+    border-radius: 7px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    background-color: rgb(230, 230, 230);
+}
+.menu-name {
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
+#food-menu {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 25px;
+}
+body {
+    margin-left: 15px;
+}
+.menu-image {
+    height: 150px;
+    width: 200px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
