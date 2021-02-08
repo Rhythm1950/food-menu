@@ -21,7 +21,12 @@ const search = document.getElementById("search").addEventListener("click", funct
             mealsDiv.appendChild(mealDiv);
             document.getElementById("menu-input").value = "";
         });
-    });
+    })
+    .catch(error => errorShowing('Sorry. No matching item found!'));
+    const errorShowing = correction => {
+        const errorMessage = document.getElementById("error");
+        errorMessage.innerText = correction;
+    }
     // showing the ingredients of food items on click using api and use of async await
     displayMenuDetails = async (name) =>{
         const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`);
@@ -33,7 +38,7 @@ const search = document.getElementById("search").addEventListener("click", funct
     foodDetails.innerHTML = `
     <div class="ingredients-div">
     <img class="menu-image" src="${food.strMealThumb}" >
-    <h1>${food.strMeal}</h1>
+    <h1 class="selected-item">${food.strMeal}</h1>
     <h4>Ingredients</h4>
     <ul>
         <li><h6>${food.strIngredient1}</h6></li>
