@@ -59,8 +59,16 @@ body {
     margin-left: 15px;
 }
 .menu-image {
-    height: 150px;
-    width: 200px;
+    height: 249px;
+    width: 249px;
     margin-bottom: 10px;
     margin-top: 15px;
+}
+#order-button {
+    background-color: chocolate;
+    color: white;
+    padding: 7px 15px;
+    font-size: 20px;
+    border: 2px solid white;
+    box-shadow: 7px 7px 30px rgb(197, 197, 197);
 }

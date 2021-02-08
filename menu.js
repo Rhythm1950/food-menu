@@ -1,10 +1,14 @@
 const search = document.getElementById("search").addEventListener("click", function(){
     const menuInput = document.getElementById("menu-input").value;
+    if(menuInput == ""){
+            alert("Do you want to see random menu?");
+        }
 
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${menuInput}`)
     .then(res => res.json())
     .then(data => {
         const mealsDiv = document.getElementById("food-menu");
+        mealsDiv.innerHTML = "";
         data.meals.forEach(element => {
             const mealDiv = document.createElement("div");
             mealDiv.className = "menu";
@@ -31,13 +35,14 @@ const search = document.getElementById("search").addEventListener("click", funct
     <h1>${food.strMeal}</h1>
     <h4>Ingredients</h4>
     <ul>
-        <li><h5>${food.strIngredient1}</h5></li>
-        <li><h5>${food.strIngredient2}</h5></li>
-        <li><h5>${food.strIngredient3}</h5></li>
-        <li><h5>${food.strIngredient4}</h5></li>
-        <li><h5>${food.strIngredient5}</h5></li>
-        <li><h5>${food.strIngredient6}</h5></li>
+        <li><h6>${food.strIngredient1}</h6></li>
+        <li><h6>${food.strIngredient2}</h6></li>
+        <li><h6>${food.strIngredient3}</h6></li>
+        <li><h6>${food.strIngredient4}</h6></li>
+        <li><h6>${food.strIngredient5}</h6></li>
+        <li><h6>${food.strIngredient6}</h6></li>
     </ul>
+    <button id="order-button">Order Now</button>
     `
     }
 })
