@@ -37,7 +37,6 @@ a.active,a:hover{
     color: white;
 }
 .menu {
-    /* border: 1px solid rgb(161, 161, 161); */
     border-radius: 7px;
     padding: 20px;
     text-align: center;
@@ -71,4 +70,13 @@ body {
     font-size: 20px;
     border: 2px solid white;
     box-shadow: 7px 7px 30px rgb(197, 197, 197);
+    margin-top: 20px;
+}
+.ingredients-div {
+    padding-left: 75px;
+    margin-left: 350px;
+    padding-top: 40px;
+    padding-bottom: 50px;
+    box-shadow: 7px 7px 30px rgb(197, 197, 197);
+    width: 400px;
 }
